@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hyzt-system" />
         <module name="hyzt-quartz" />
         <module name="hyzt-framework" />
         <module name="hyzt-generator" />
-        <module name="hyzt-admin" />
         <module name="hyzt-common" />
+        <module name="hyzt-system" />
+        <module name="hyzt-admin" />
       </profile>
     </annotationProcessing>
   </component>
