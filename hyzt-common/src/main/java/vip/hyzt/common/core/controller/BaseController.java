@@ -1,4 +1,4 @@
-package vip.hyzt.common.core.contoller;
+package vip.hyzt.common.core.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

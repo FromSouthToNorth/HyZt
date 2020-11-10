@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fee043a-b45d-4920-b89a-82fcd4e298b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hyzt-system/src/main/java/vip/hyzt/system/service/ISysRoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hyzt-admin/src/main/resources/application-druid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hyzt-admin/src/main/resources/application-druid.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hyzt-admin/target/classes/application-druid.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hyzt-admin/target/classes/application-druid.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hyzt-common/src/main/java/vip/hyzt/common/core/contoller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hyzt-common/src/main/java/vip/hyzt/common/core/controller/BaseController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,19 +44,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/hyzt-system/src/main/resources/mapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sql" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="vip.hyzt.framework.web.service" />
+      <recent name="vip.hyzt.framework.web.exception" />
+      <recent name="vip.hyzt.web.controller.system" />
+      <recent name="vip.hyzt.web.core.config" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hy\Desktop\hyzt\sql" />
+      <recent name="C:\Users\Hy\Desktop\hyzt\hyzt-framework\src\main\java\vip\hyzt\framework\web" />
+      <recent name="C:\Users\Hy\Desktop\hyzt\hyzt-admin\src\main\java\vip\hyzt\web\controller" />
       <recent name="C:\Users\Hy\Desktop\hyzt\hyzt-system\src\main\resources\mapper" />
       <recent name="C:\Users\Hy\Desktop\hyzt\hyzt-system\src\main\java\vip\hyzt\system\mapper" />
-      <recent name="C:\Users\Hy\Desktop\hyzt\hyzt-system\src\main\java\vip\hyzt\system\domain\vo" />
-      <recent name="C:\Users\Hy\Desktop\hyzt\hyzt-framework\src\main\java\vip\hyzt\framework\security" />
-      <recent name="C:\Users\Hy\Desktop\hyzt\hyzt-common\src\main\java\vip\hyzt\common\filter" />
     </key>
   </component>
   <component name="RunManager">
@@ -92,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604980877864</updated>
       <workItem from="1604980878886" duration="6934000" />
-      <workItem from="1604988388332" duration="9549000" />
+      <workItem from="1604988388332" duration="12801000" />
     </task>
     <servers />
   </component>
@@ -105,46 +109,46 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="821" y="189" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1604981886139" />
-    <state x="1198" y="184" key="#com.intellij.ide.util.MemberChooser" timestamp="1604997836900">
+    <state x="1198" y="184" key="#com.intellij.ide.util.MemberChooser" timestamp="1604999524420">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1198" y="184" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1604997836900" />
-    <state x="410" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1604982696196">
+    <state x="1198" y="184" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1604999524420" />
+    <state x="410" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1605008407629">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="410" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1604982696196" />
-    <state width="1867" height="529" key="GridCell.Tab.0.bottom" timestamp="1604998430724">
+    <state x="410" y="447" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1605008407629" />
+    <state width="1867" height="529" key="GridCell.Tab.0.bottom" timestamp="1604998444029">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1867" height="529" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1604998430724" />
-    <state width="1867" height="529" key="GridCell.Tab.0.center" timestamp="1604998430724">
+    <state width="1867" height="529" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1604998444029" />
+    <state width="1867" height="529" key="GridCell.Tab.0.center" timestamp="1604998444028">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1867" height="529" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1604998430724" />
-    <state width="1867" height="529" key="GridCell.Tab.0.left" timestamp="1604998430724">
+    <state width="1867" height="529" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1604998444028" />
+    <state width="1867" height="529" key="GridCell.Tab.0.left" timestamp="1604998444028">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1867" height="529" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1604998430724" />
-    <state width="1867" height="529" key="GridCell.Tab.0.right" timestamp="1604998430724">
+    <state width="1867" height="529" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1604998444028" />
+    <state width="1867" height="529" key="GridCell.Tab.0.right" timestamp="1604998444029">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1867" height="529" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604998430724" />
-    <state width="1867" height="529" key="GridCell.Tab.1.bottom" timestamp="1604998430724">
+    <state width="1867" height="529" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604998444029" />
+    <state width="1867" height="529" key="GridCell.Tab.1.bottom" timestamp="1604998444029">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1867" height="529" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1604998430724" />
-    <state width="1867" height="529" key="GridCell.Tab.1.center" timestamp="1604998430724">
+    <state width="1867" height="529" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1604998444029" />
+    <state width="1867" height="529" key="GridCell.Tab.1.center" timestamp="1604998444029">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1867" height="529" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1604998430724" />
-    <state width="1867" height="529" key="GridCell.Tab.1.left" timestamp="1604998430724">
+    <state width="1867" height="529" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1604998444029" />
+    <state width="1867" height="529" key="GridCell.Tab.1.left" timestamp="1604998444029">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1867" height="529" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1604998430724" />
-    <state width="1867" height="529" key="GridCell.Tab.1.right" timestamp="1604998430724">
+    <state width="1867" height="529" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1604998444029" />
+    <state width="1867" height="529" key="GridCell.Tab.1.right" timestamp="1604998444029">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1867" height="529" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604998430724" />
+    <state width="1867" height="529" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1604998444029" />
     <state x="412" y="210" key="IDE.errors.dialog" timestamp="1604985490819">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
