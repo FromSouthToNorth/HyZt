@@ -772,11 +772,13 @@ create table sys_type (
 drop table if exists sys_comment;
 create table sys_comment (
     comment_id      bigint(20)      not null    auto_increment  comment '评论id',
+    parent_id       bigint(20)      default 0                   comment '父评论id',
+    blog_id         bigint(20)      not null                    comment '博客id',
     nickname        varchar(60)     not null                    comment '评论人名称',
     email           varchar(60)     not null                    comment '评论人邮箱',
     content         varchar(600)    not null                    comment '评论内容',
     avatar          varchar(100)    default ''                  comment '评论人头像',
-    create_time 	datetime                                    comment '创建时间',
     del_flag        char(1)         default '0'                 comment '删除标志（0代表存在 2代表删除）',
+    create_time 	datetime                                    comment '创建时间',
     primary key (comment_id)
 ) engine=innodb auto_increment=100 comment = '博客评论表';
