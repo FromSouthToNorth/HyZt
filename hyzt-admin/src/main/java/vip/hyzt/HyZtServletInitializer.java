@@ -12,5 +12,4 @@ public class HyZtServletInitializer extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(HyZtApplication.class);
     }
-
 }

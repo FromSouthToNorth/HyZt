@@ -15,5 +15,4 @@ public class HyZtApplication {
         SpringApplication.run(HyZtApplication.class, args);
         System.out.println("(♥◠‿◠)ﾉﾞ  启动成功   ლ(´ڡ`ლ)ﾞ");
     }
-
 }
