@@ -1,6 +1,7 @@
 package vip.hyzt.system.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import vip.hyzt.common.core.domain.entity.SysDictData;
 import vip.hyzt.common.utils.DictUtils;
 import vip.hyzt.system.mapper.SysDictDataMapper;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * 字典 服务层处理
  */
+@Service
 public class SysDictDataServiceImpl implements ISysDictDataService {
 
     @Autowired

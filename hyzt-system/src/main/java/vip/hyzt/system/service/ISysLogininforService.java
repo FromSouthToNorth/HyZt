@@ -4,7 +4,7 @@ import vip.hyzt.system.domain.SysLogininfor;
 import java.util.List;
 
 /**
- * 系统访问日志情况信息 服务层
+ * 系统访问日志情况信息 业务层
  */
 public interface ISysLogininforService {
 
