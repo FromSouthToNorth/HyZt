@@ -696,11 +696,14 @@ create table gen_table_column (
 ) engine=innodb auto_increment=1 comment = '代码生成业务表字段';
 
 
+-- ----------------------------
 -- 博客管理
+-- ----------------------------
 
 -- ----------------------------
 -- 1、博客表
 -- ----------------------------
+drop table if exists sys_blog;
 create table sys_blog (
     blog_id                 bigint(20)      not null    auto_increment  comment '博客id',
     user_id                 bigint(20)      not null                    comment '用户id',
@@ -726,6 +729,7 @@ create table sys_blog (
 -- ----------------------------
 -- 2、博客标签表
 -- ----------------------------
+drop table if exists sys_tag;
 create table sys_tag (
     tag_id                  bigint(20)      not null    auto_increment  comment '标签id',
     tag_name                varchar(60)     not null                    comment '标签名称',
@@ -736,3 +740,43 @@ create table sys_tag (
     update_time             datetime                                    comment '更新时间',
     primary key (tag_id)
 ) engine=innodb auto_increment=100 comment = '博客标签表';
+
+-- ----------------------------
+-- 2、博客与标签关联表
+-- ----------------------------
+drop table if exists sys_blog_tag;
+create table sys_blog_tag (
+    blog_id         bigint(20)      not null        comment '博客id',
+    tag_id          bigint(20)      not null        comment '标签id',
+    primary key (blog_id, tag_id)
+) engine=innodb auto_increment=100 comment = '博客与标签关联表';
+
+-- ----------------------------
+-- 3、博客类型表
+-- ----------------------------
+drop table if exists sys_type;
+create table sys_type (
+    type_id         bigint(20)      not null     auto_increment     comment '类型id',
+    name            varchar(60)     not null                        comment '类型名称',
+    del_flag        char(1)         default '0'                     comment '删除标志（0代表存在 2代表删除）',
+    create_by       varchar(64)     default ''                      comment '创建者',
+    create_time 	datetime                                        comment '创建时间',
+    update_by       varchar(64)     default ''                      comment '更新者',
+    update_time     datetime                                        comment '更新时间',
+    primary key (type_id)
+) engine=innodb auto_increment=100 comment = '博客类型联表';
+
+-- ----------------------------
+-- 4、博客评论表
+-- ----------------------------
+drop table if exists sys_comment;
+create table sys_comment (
+    comment_id      bigint(20)      not null    auto_increment  comment '评论id',
+    nickname        varchar(60)     not null                    comment '评论人名称',
+    email           varchar(60)     not null                    comment '评论人邮箱',
+    content         varchar(600)    not null                    comment '评论内容',
+    avatar          varchar(100)    default ''                  comment '评论人头像',
+    create_time 	datetime                                    comment '创建时间',
+    del_flag        char(1)         default '0'                 comment '删除标志（0代表存在 2代表删除）',
+    primary key (comment_id)
+) engine=innodb auto_increment=100 comment = '博客评论表';
