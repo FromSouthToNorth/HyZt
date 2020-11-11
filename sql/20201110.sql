@@ -156,10 +156,11 @@ create table sys_menu (
 -- 初始化-菜单信息表数据
 -- ----------------------------
 -- 一级菜单
-insert into sys_menu values('1', '系统管理', '0', '1', 'system',           null,   1, 0, 'M', '0', '0', '', 'system',   'admin', sysdate(), '', null, '系统管理目录');
-insert into sys_menu values('2', '系统监控', '0', '2', 'monitor',          null,   1, 0, 'M', '0', '0', '', 'monitor',  'admin', sysdate(), '', null, '系统监控目录');
-insert into sys_menu values('3', '系统工具', '0', '3', 'tool',             null,   1, 0, 'M', '0', '0', '', 'tool',     'admin', sysdate(), '', null, '系统工具目录');
-insert into sys_menu values('4', '若依官网', '0', '4', 'http://ruoyi.vip', null ,  0, 0, 'M', '0', '0', '', 'guide',    'admin', sysdate(), '', null, '若依官网地址');
+insert into sys_menu values('2000', '博客管理', '0', '0', 'blog',             null ,  1, 0, 'M', '0', '0', '', 'blog',     'admin', sysdate(), '', null, '博客管理目录');
+insert into sys_menu values('1',    '系统管理', '0', '1', 'system',           null,   1, 0, 'M', '0', '0', '', 'system',   'admin', sysdate(), '', null, '系统管理目录');
+insert into sys_menu values('2',    '系统监控', '0', '2', 'monitor',          null,   1, 0, 'M', '0', '0', '', 'monitor',  'admin', sysdate(), '', null, '系统监控目录');
+insert into sys_menu values('3',    '系统工具', '0', '3', 'tool',             null,   1, 0, 'M', '0', '0', '', 'tool',     'admin', sysdate(), '', null, '系统工具目录');
+insert into sys_menu values('4',    '若依官网', '0', '4', 'http://ruoyi.vip', null ,  0, 0, 'M', '0', '0', '', 'guide',    'admin', sysdate(), '', null, '若依官网地址');
 -- 二级菜单
 insert into sys_menu values('100',  '用户管理', '1',   '1', 'user',       'system/user/index',        1, 0, 'C', '0', '0', 'system:user:list',        'user',          'admin', sysdate(), '', null, '用户管理菜单');
 insert into sys_menu values('101',  '角色管理', '1',   '2', 'role',       'system/role/index',        1, 0, 'C', '0', '0', 'system:role:list',        'peoples',       'admin', sysdate(), '', null, '角色管理菜单');
@@ -177,6 +178,11 @@ insert into sys_menu values('112',  '服务监控', '2',   '4', 'server',     'm
 insert into sys_menu values('113',  '表单构建', '3',   '1', 'build',      'tool/build/index',         1, 0, 'C', '0', '0', 'tool:build:list',         'build',         'admin', sysdate(), '', null, '表单构建菜单');
 insert into sys_menu values('114',  '代码生成', '3',   '2', 'gen',        'tool/gen/index',           1, 0, 'C', '0', '0', 'tool:gen:list',           'code',          'admin', sysdate(), '', null, '代码生成菜单');
 insert into sys_menu values('115',  '系统接口', '3',   '3', 'swagger',    'tool/swagger/index',       1, 0, 'C', '0', '0', 'tool:swagger:list',       'swagger',       'admin', sysdate(), '', null, '系统接口菜单');
+insert into sys_menu values('2001', '博客管理', '2000', '1', 'blog',      'blog/blog/index',          1, 0, 'C', '0', '0', 'blog:blog:list',          'education',     'admin', sysdate(), '', null, '博客管理菜单');
+insert into sys_menu values('2002', '博客类型', '2000', '2', 'type',      'blog/type/index',          1, 0, 'C', '0', '0', 'blog:type:list',          'blog-type',     'admin', sysdate(), '', null, '类型管理菜单');
+insert into sys_menu values('2003', '博客标签', '2000', '3', 'tag',       'blog/tag/index',           1, 0, 'C', '0', '0', 'blog:tag:list',           'blog-tag',      'admin', sysdate(), '', null, '标签管理菜单');
+insert into sys_menu values('2004', '博客评论', '2000', '4', 'comment',   'blog/comment/index',       1, 0, 'C', '0', '0', 'blog:comment:list',       'blog-comment',  'admin', sysdate(), '', null, '评论管理菜单');
+
 -- 三级菜单
 insert into sys_menu values('500',  '操作日志', '108', '1', 'operlog',    'monitor/operlog/index',    1, 0, 'C', '0', '0', 'monitor:operlog:list',    'form',          'admin', sysdate(), '', null, '操作日志菜单');
 insert into sys_menu values('501',  '登录日志', '108', '2', 'logininfor', 'monitor/logininfor/index', 1, 0, 'C', '0', '0', 'monitor:logininfor:list', 'logininfor',    'admin', sysdate(), '', null, '登录日志菜单');
@@ -254,6 +260,20 @@ insert into sys_menu values('1058', '导入代码', '114', '2', '#', '', 1, 0, '
 insert into sys_menu values('1059', '预览代码', '114', '4', '#', '', 1, 0, 'F', '0', '0', 'tool:gen:preview',           '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('1060', '生成代码', '114', '5', '#', '', 1, 0, 'F', '0', '0', 'tool:gen:code',              '#', 'admin', sysdate(), '', null, '');
 
+insert into sys_menu values('2005', '博客查询', '2001', '1', '', null , 1, 0, 'F', '0', '0', 'blog:blog:query',     '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2006', '博客新增', '2001', '2', '', null , 1, 0, 'F', '0', '0', 'blog:blog:add',       '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2008', '博客修改', '2001', '3', '', null , 1, 0, 'F', '0', '0', 'blog:blog:edit',      '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2009', '博客删除', '2001', '4', '', null , 1, 0, 'F', '0', '0', 'blog:blog:remove',    '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2010', '类型查询', '2002', '1', '', null , 1, 0, 'F', '0', '0', 'blog:type:query',     '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2011', '类型新增', '2002', '2', '', null , 1, 0, 'F', '0', '0', 'blog:type:add',       '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2012', '类型修改', '2002', '3', '', null , 1, 0, 'F', '0', '0', 'blog:type:edit',      '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2013', '类型删除', '2002', '4', '', null , 1, 0, 'F', '0', '0', 'blog:type:remove',    '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2014', '评论查询', '2004', '1', '', null , 1, 0, 'F', '0', '0', 'blog:comment:query',  '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2015', '评论删除', '2004', '2', '', null , 1, 0, 'F', '0', '0', 'blog:comment:remove', '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2016', '标签查询', '2003', '1', '', null , 1, 0, 'F', '0', '0', 'blog:tag:query',      '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2017', '新增标签', '2003', '2', '', null , 1, 0, 'F', '0', '0', 'blog:tag:add',        '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2018', '标签修改', '2003', '3', '', null , 1, 0, 'F', '0', '0', 'blog:tag:edit',       '#', 'admin', sysdate(), '', null, '');
+insert into sys_menu values('2019', '标签删除', '2003', '4', '', null , 1, 0, 'F', '0', '0', 'blog:tag:remove',     '#', 'admin', sysdate(), '', null, '');
 
 -- ----------------------------
 -- 6、用户和角色关联表  用户N-1角色
