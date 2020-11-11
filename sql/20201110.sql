@@ -700,6 +700,7 @@ create table gen_table_column (
 -- 博客管理
 -- ----------------------------
 
+
 -- ----------------------------
 -- 1、博客表
 -- ----------------------------
@@ -707,10 +708,10 @@ drop table if exists sys_blog;
 create table sys_blog (
     blog_id                 bigint(20)      not null    auto_increment  comment '博客id',
     user_id                 bigint(20)      not null                    comment '用户id',
-    blog_title              varchar(100)    not null                    comment '博客标题',
+    blog_title              varchar(50)     not null                    comment '博客标题',
     description             varchar(260)    not null                    comment '博客描述',
     blog_content            text            not null                    comment '博客内容',
-    first_picture           varchar(260)    not null                    comment '博客首图',
+    first_picture           varchar(160)    not null                    comment '博客首图',
     flag                    char(1)         not null                    comment '博客标记（0表示原创，1表示转载）',
     views_number            int(11)         default 0                   comment '博客浏览数',
     like_number             int(11)         default 0                   comment '博客点赞数',
@@ -732,7 +733,7 @@ create table sys_blog (
 drop table if exists sys_tag;
 create table sys_tag (
     tag_id                  bigint(20)      not null    auto_increment  comment '标签id',
-    tag_name                varchar(60)     not null                    comment '标签名称',
+    tag_name                varchar(30)     not null                    comment '标签名称',
     del_flag                char(1)         default '0'                 comment '删除标志（0代表存在 2代表删除）',
     create_by               varchar(64)     default ''                  comment '创建者',
     create_time 	        datetime                                    comment '创建时间',
@@ -757,7 +758,7 @@ create table sys_blog_tag (
 drop table if exists sys_type;
 create table sys_type (
     type_id         bigint(20)      not null     auto_increment     comment '类型id',
-    name            varchar(60)     not null                        comment '类型名称',
+    name            varchar(30)     not null                        comment '类型名称',
     del_flag        char(1)         default '0'                     comment '删除标志（0代表存在 2代表删除）',
     create_by       varchar(64)     default ''                      comment '创建者',
     create_time 	datetime                                        comment '创建时间',
@@ -774,8 +775,8 @@ create table sys_comment (
     comment_id      bigint(20)      not null    auto_increment  comment '评论id',
     parent_id       bigint(20)      default 0                   comment '父评论id',
     blog_id         bigint(20)      not null                    comment '博客id',
-    nickname        varchar(60)     not null                    comment '评论人名称',
-    email           varchar(60)     not null                    comment '评论人邮箱',
+    nickname        varchar(30)     not null                    comment '评论人名称',
+    email           varchar(30)     not null                    comment '评论人邮箱',
     content         varchar(600)    not null                    comment '评论内容',
     avatar          varchar(100)    default ''                  comment '评论人头像',
     del_flag        char(1)         default '0'                 comment '删除标志（0代表存在 2代表删除）',

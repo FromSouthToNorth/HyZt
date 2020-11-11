@@ -4,11 +4,11 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import vip.hyzt.common.annotation.Excel;
 import vip.hyzt.common.core.domain.BaseEntity;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 /**
  * 博客对象 sys_blog
- * 
- * @author hyzt
  */
 public class SysBlog extends BaseEntity {
 
@@ -22,18 +22,23 @@ public class SysBlog extends BaseEntity {
     private Long userId;
 
     /** 博客标题 */
+    @NotBlank(message = "博客标题不能为空")
+    @Size(min = 0, max = 50, message = "博客标题长度不能超过50个字符")
     @Excel(name = "博客标题")
     private String blogTitle;
 
     /** 博客描述 */
+    @NotBlank(message = "博客标题不能为空")
     @Excel(name = "博客描述")
     private String description;
 
     /** 博客内容 */
+    @NotBlank(message = "博客内容不能为空")
     @Excel(name = "博客内容")
     private String blogContent;
 
     /** 博客首图 */
+    @NotBlank(message = "博客首图不能为空")
     @Excel(name = "博客首图")
     private String firstPicture;
 
@@ -68,131 +73,120 @@ public class SysBlog extends BaseEntity {
     /** 删除标志（0代表存在 2代表删除） */
     private String delFlag;
 
-    public void setBlogId(Long blogId) 
-    {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getBlogId() {
+        return blogId;
+    }
+
+    public void setBlogId(Long blogId) {
         this.blogId = blogId;
     }
 
-    public Long getBlogId() 
-    {
-        return blogId;
+    public Long getUserId() {
+        return userId;
     }
-    public void setUserId(Long userId) 
-    {
+
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Long getUserId() 
-    {
-        return userId;
+    public String getBlogTitle() {
+        return blogTitle;
     }
-    public void setBlogTitle(String blogTitle) 
-    {
+
+    public void setBlogTitle(String blogTitle) {
         this.blogTitle = blogTitle;
     }
 
-    public String getBlogTitle() 
-    {
-        return blogTitle;
+    public String getDescription() {
+        return description;
     }
-    public void setDescription(String description) 
-    {
+
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getDescription() 
-    {
-        return description;
+    public String getBlogContent() {
+        return blogContent;
     }
-    public void setBlogContent(String blogContent) 
-    {
+
+    public void setBlogContent(String blogContent) {
         this.blogContent = blogContent;
     }
 
-    public String getBlogContent() 
-    {
-        return blogContent;
+    public String getFirstPicture() {
+        return firstPicture;
     }
-    public void setFirstPicture(String firstPicture) 
-    {
+
+    public void setFirstPicture(String firstPicture) {
         this.firstPicture = firstPicture;
     }
 
-    public String getFirstPicture() 
-    {
-        return firstPicture;
+    public String getFlag() {
+        return flag;
     }
-    public void setFlag(String flag) 
-    {
+
+    public void setFlag(String flag) {
         this.flag = flag;
     }
 
-    public String getFlag() 
-    {
-        return flag;
+    public Long getViewsNumber() {
+        return viewsNumber;
     }
-    public void setViewsNumber(Long viewsNumber) 
-    {
+
+    public void setViewsNumber(Long viewsNumber) {
         this.viewsNumber = viewsNumber;
     }
 
-    public Long getViewsNumber() 
-    {
-        return viewsNumber;
+    public Long getLikeNumber() {
+        return likeNumber;
     }
-    public void setLikeNumber(Long likeNumber) 
-    {
+
+    public void setLikeNumber(Long likeNumber) {
         this.likeNumber = likeNumber;
     }
 
-    public Long getLikeNumber() 
-    {
-        return likeNumber;
+    public String getAppreciateFunction() {
+        return appreciateFunction;
     }
-    public void setAppreciateFunction(String appreciateFunction) 
-    {
+
+    public void setAppreciateFunction(String appreciateFunction) {
         this.appreciateFunction = appreciateFunction;
     }
 
-    public String getAppreciateFunction() 
-    {
-        return appreciateFunction;
+    public String getCommentFunction() {
+        return commentFunction;
     }
-    public void setCommentFunction(String commentFunction) 
-    {
+
+    public void setCommentFunction(String commentFunction) {
         this.commentFunction = commentFunction;
     }
 
-    public String getCommentFunction() 
-    {
-        return commentFunction;
+    public String getPublished() {
+        return published;
     }
-    public void setPublished(String published) 
-    {
+
+    public void setPublished(String published) {
         this.published = published;
     }
 
-    public String getPublished() 
-    {
-        return published;
+    public Long getTypeId() {
+        return typeId;
     }
-    public void setTypeId(Long typeId) 
-    {
+
+    public void setTypeId(Long typeId) {
         this.typeId = typeId;
     }
 
-    public Long getTypeId() 
-    {
-        return typeId;
-    }
-    public void setDelFlag(String delFlag) 
-    {
-        this.delFlag = delFlag;
+    public String getDelFlag() {
+        return delFlag;
     }
 
-    public String getDelFlag() 
-    {
-        return delFlag;
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
     }
 
     @Override
