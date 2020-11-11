@@ -23,16 +23,11 @@ create table sys_dept (
 -- ----------------------------
 -- 初始化-部门表数据
 -- ----------------------------
-insert into sys_dept values(100,  0,   '0',          '若依科技',   0, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
-insert into sys_dept values(101,  100, '0,100',      '深圳总公司', 1, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
-insert into sys_dept values(102,  100, '0,100',      '长沙分公司', 2, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
+insert into sys_dept values(100,  0,   '0',          '锤子科技',   0, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
+insert into sys_dept values(101,  100, '0,100',      '锤子总公司', 1, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
+insert into sys_dept values(102,  100, '0,100',      '锤子分公司', 2, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
 insert into sys_dept values(103,  101, '0,100,101',  '研发部门',   1, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
-insert into sys_dept values(104,  101, '0,100,101',  '市场部门',   2, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
-insert into sys_dept values(105,  101, '0,100,101',  '测试部门',   3, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
-insert into sys_dept values(106,  101, '0,100,101',  '财务部门',   4, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
-insert into sys_dept values(107,  101, '0,100,101',  '运维部门',   5, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
-insert into sys_dept values(108,  102, '0,100,102',  '市场部门',   1, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
-insert into sys_dept values(109,  102, '0,100,102',  '财务部门',   2, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
+insert into sys_dept values(105,  101, '0,100,101',  '测试部门',   2, '若依', '15888888888', 'ry@qq.com', '0', '0', 'admin', sysdate(), '', null);
 
 
 -- ----------------------------
@@ -65,8 +60,8 @@ create table sys_user (
 -- ----------------------------
 -- 初始化-用户信息表数据
 -- ----------------------------
-insert into sys_user values(1,  103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', sysdate(), 'admin', sysdate(), '', null, '管理员');
-insert into sys_user values(2,  105, 'ry',    '若依', '00', 'ry@qq.com',  '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', sysdate(), 'admin', sysdate(), '', null, '测试员');
+insert into sys_user values(1,  103, 'admin', 'hy', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', sysdate(), 'admin', sysdate(), '', null, '管理员');
+insert into sys_user values(2,  105, 'hy',    'hy', '00', 'ry@qq.com',  '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', sysdate(), 'admin', sysdate(), '', null, '测试员');
 
 
 -- ----------------------------
@@ -91,10 +86,10 @@ create table sys_post
 -- ----------------------------
 -- 初始化-岗位信息表数据
 -- ----------------------------
-insert into sys_post values(1, 'ceo',  '董事长',    1, '0', 'admin', sysdate(), '', null, '');
-insert into sys_post values(2, 'se',   '项目经理',  2, '0', 'admin', sysdate(), '', null, '');
-insert into sys_post values(3, 'hr',   '人力资源',  3, '0', 'admin', sysdate(), '', null, '');
-insert into sys_post values(4, 'user', '普通员工',  4, '0', 'admin', sysdate(), '', null, '');
+insert into sys_post values(1, 'ceo',  'CEO',    1, '0', 'admin', sysdate(), '', null, '');
+insert into sys_post values(2, 'se',   'SE',     2, '0', 'admin', sysdate(), '', null, '');
+insert into sys_post values(3, 'hr',   'HR',     3, '0', 'admin', sysdate(), '', null, '');
+insert into sys_post values(4, 'user', 'USER',   4, '0', 'admin', sysdate(), '', null, '');
 
 
 -- ----------------------------
@@ -259,7 +254,7 @@ insert into sys_menu values('1057', '生成删除', '114', '3', '#', '', 1, 0, '
 insert into sys_menu values('1058', '导入代码', '114', '2', '#', '', 1, 0, 'F', '0', '0', 'tool:gen:import',            '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('1059', '预览代码', '114', '4', '#', '', 1, 0, 'F', '0', '0', 'tool:gen:preview',           '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('1060', '生成代码', '114', '5', '#', '', 1, 0, 'F', '0', '0', 'tool:gen:code',              '#', 'admin', sysdate(), '', null, '');
-
+-- 博客管理按钮
 insert into sys_menu values('2005', '博客查询', '2001', '1', '', null , 1, 0, 'F', '0', '0', 'blog:blog:query',     '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('2006', '博客新增', '2001', '2', '', null , 1, 0, 'F', '0', '0', 'blog:blog:add',       '#', 'admin', sysdate(), '', null, '');
 insert into sys_menu values('2008', '博客修改', '2001', '3', '', null , 1, 0, 'F', '0', '0', 'blog:blog:edit',      '#', 'admin', sysdate(), '', null, '');
@@ -639,8 +634,8 @@ create table sys_notice (
 -- ----------------------------
 -- 初始化-公告信息表数据
 -- ----------------------------
-insert into sys_notice values('1', '温馨提醒：2018-07-01 若依新版本发布啦', '2', '新版本内容', '0', 'admin', sysdate(), '', null, '管理员');
-insert into sys_notice values('2', '维护通知：2018-07-01 若依系统凌晨维护', '1', '维护内容',   '0', 'admin', sysdate(), '', null, '管理员');
+insert into sys_notice values('1', '温馨提醒：2020-11-11 新版本发布啦', '2', '新版本内容', '0', 'admin', sysdate(), '', null, '管理员');
+insert into sys_notice values('2', '维护通知：2020-11-11 系统凌晨维护', '1', '维护内容',   '0', 'admin', sysdate(), '', null, '管理员');
 
 
 -- ----------------------------
@@ -699,3 +694,45 @@ create table gen_table_column (
   update_time       datetime                                   comment '更新时间',
   primary key (column_id)
 ) engine=innodb auto_increment=1 comment = '代码生成业务表字段';
+
+
+-- 博客管理
+
+-- ----------------------------
+-- 1、博客表
+-- ----------------------------
+create table sys_blog (
+    blog_id                 bigint(20)      not null    auto_increment  comment '博客id',
+    user_id                 bigint(20)      not null                    comment '用户id',
+    blog_title              varchar(100)    not null                    comment '博客标题',
+    description             varchar(260)    not null                    comment '博客描述',
+    blog_content            text            not null                    comment '博客内容',
+    first_picture           varchar(260)    not null                    comment '博客首图',
+    flag                    char(1)         not null                    comment '博客标记（0表示原创，1表示转载）',
+    views_number            int(11)         default 0                   comment '博客浏览数',
+    like_number             int(11)         default 0                   comment '博客点赞数',
+    appreciate_function     char(1)         not null                    comment '是否开启赞赏（0表示关闭，1表示开启）',
+    comment_function        char(1)         not null                    comment '是否开启评论功能（0表示关闭，1表示关闭）',
+    published               char(1)         not null                    comment '是否发布（0表示否，1表示是）',
+    type_id                 bigint(20)      not null                    comment '类型id',
+    del_flag                char(1)         default '0'                 comment '删除标志（0代表存在 2代表删除）',
+    create_by               varchar(64)     default ''                  comment '创建者',
+    create_time 	        datetime                                    comment '创建时间',
+    update_by               varchar(64)     default ''                  comment '更新者',
+    update_time             datetime                                    comment '更新时间',
+    primary key (blog_id)
+) engine=innodb auto_increment=100 comment = '博客表';
+
+-- ----------------------------
+-- 2、博客标签表
+-- ----------------------------
+create table sys_tag (
+    tag_id                  bigint(20)      not null    auto_increment  comment '标签id',
+    tag_name                varchar(60)     not null                    comment '标签名称',
+    del_flag                char(1)         default '0'                 comment '删除标志（0代表存在 2代表删除）',
+    create_by               varchar(64)     default ''                  comment '创建者',
+    create_time 	        datetime                                    comment '创建时间',
+    update_by               varchar(64)     default ''                  comment '更新者',
+    update_time             datetime                                    comment '更新时间',
+    primary key (tag_id)
+) engine=innodb auto_increment=100 comment = '博客标签表';
