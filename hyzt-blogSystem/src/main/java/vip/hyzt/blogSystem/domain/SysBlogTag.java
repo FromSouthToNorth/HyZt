@@ -1,15 +1,15 @@
-package vip.hyzt.system.domain;
+package vip.hyzt.blogSystem.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import vip.hyzt.common.core.domain.BaseEntity;
 
 /**
  * 博客与标签关联对象 sys_blog_tag
+ * 
+ * @author hyzt
+ * @date 2020-11-12
  */
-public class SysBlogTag extends BaseEntity {
-
-    private static final long serialVersionUID = 1L;
+public class SysBlogTag {
 
     /** 博客id */
     private Long blogId;

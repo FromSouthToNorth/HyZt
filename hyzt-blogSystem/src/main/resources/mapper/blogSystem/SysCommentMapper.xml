@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vip.hyzt.blogSystem.mapper.SysCommentMapper">
+    
+    <resultMap type="SysComment" id="SysCommentResult">
+        <result property="commentId"    column="comment_id" />
+        <result property="parentId"     column="parent_id"  />
+        <result property="nickname"     column="nickname"   />
+        <result property="email"        column="email"      />
+        <result property="content"      column="content"    />
+        <result property="avatar"       column="avatar"     />
+        <result property="delFlag"      column="del_flag"   />
+        <result property="createTime"   column="create_time" />
+    </resultMap>
+
+    <sql id="selectSysCommentVo">
+        select comment_id, parent_id, nickname, email, content, avatar, del_flag, create_time from sys_comment
+    </sql>
+
+    <select id="selectSysCommentList" parameterType="SysComment" resultMap="SysCommentResult">
+        <include refid="selectSysCommentVo"/>
+        where del_flag = '0'
+        <where>  
+            <if test="parentId != null "> and parent_id = #{parentId}</if>
+            <if test="nickname != null  and nickname != ''"> and nickname like concat('%', #{nickname}, '%')</if>
+            <if test="email != null  and email != ''"> and email = #{email}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysCommentById" parameterType="Long" resultMap="SysCommentResult">
+        <include refid="selectSysCommentVo"/>
+        where comment_id = #{commentId}
+    </select>
+        
+    <insert id="insertSysComment" parameterType="SysComment" useGeneratedKeys="true" keyProperty="commentId">
+        insert into sys_comment (
+            <if test="parentId != null">parent_id,</if>
+            <if test="nickname != null and nickname != ''">nickname,</if>
+            <if test="email != null and email != ''">email,</if>
+            <if test="content != null and content != ''">content,</if>
+            <if test="avatar != null">avatar,</if>
+            create_time
+        ) values (
+            <if test="parentId != null">#{parentId},</if>
+            <if test="nickname != null and nickname != ''">#{nickname},</if>
+            <if test="email != null and email != ''">#{email},</if>
+            <if test="content != null and content != ''">#{content},</if>
+            <if test="avatar != null">#{avatar},</if>
+            sysdate()
+        )
+    </insert>
+
+    <update id="updateSysComment" parameterType="SysComment">
+        update sys_comment
+        <set>
+            <if test="parentId != null">parent_id = #{parentId},</if>
+            <if test="nickname != null and nickname != ''">nickname = #{nickname},</if>
+            <if test="email != null and email != ''">email = #{email},</if>
+            <if test="content != null and content != ''">content = #{content},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            update_time = sysdate()
+        </set>
+        where comment_id = #{commentId}
+    </update>
+
+    <delete id="deleteSysCommentById" parameterType="Long">
+        update sys_comment set del_flag = '2' where comment_id = #{commentId}
+    </delete>
+
+    <delete id="deleteSysCommentByIds" parameterType="String">
+        update sys_comment set del_flag = '2' where comment_id in
+        <foreach item="commentId" collection="array" open="(" separator="," close=")">
+            #{commentId}
+        </foreach>
+    </delete>
+    
+</mapper>

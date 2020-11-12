@@ -1,19 +1,21 @@
-package vip.hyzt.system.domain;
+package vip.hyzt.blogSystem.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import vip.hyzt.common.annotation.Excel;
 import vip.hyzt.common.core.domain.BaseEntity;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 博客评论对象 sys_comment
+ * 
+ * @author hyzt
+ * @date 2020-11-12
  */
-public class SysComment extends BaseEntity {
-
+public class SysComment extends BaseEntity
+{
     private static final long serialVersionUID = 1L;
 
     /** 评论id */
@@ -24,19 +26,14 @@ public class SysComment extends BaseEntity {
     private Long parentId;
 
     /** 评论人名称 */
-    @NotBlank(message = "评论人名称不能为空")
-    @Size(min = 0, max = 30, message = "评论人名称长度不能超过30个字符")
     @Excel(name = "评论人名称")
     private String nickname;
 
     /** 评论人邮箱 */
-    @NotBlank(message = "评论人邮箱不能为空")
-    @Size(min = 0, max = 30, message = "评论人邮箱长度不能超过20个字符")
     @Excel(name = "评论人邮箱")
     private String email;
 
     /** 评论内容 */
-    @NotBlank(message = "评论内容不能为空")
     @Excel(name = "评论内容")
     private String content;
 

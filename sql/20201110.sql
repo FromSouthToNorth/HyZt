@@ -716,7 +716,7 @@ create table sys_blog (
     views_number            int(11)         default 0                   comment '博客浏览数',
     like_number             int(11)         default 0                   comment '博客点赞数',
     appreciate_function     char(1)         not null                    comment '是否开启赞赏（0表示关闭，1表示开启）',
-    comment_function        char(1)         not null                    comment '是否开启评论功能（0表示关闭，1表示关闭）',
+    comment_function        char(1)         not null                    comment '是否开启评论功能（0表示关闭，1表示开启）',
     published               char(1)         not null                    comment '是否发布（0表示否，1表示是）',
     type_id                 bigint(20)      not null                    comment '类型id',
     del_flag                char(1)         default '0'                 comment '删除标志（0代表存在 2代表删除）',
@@ -757,15 +757,17 @@ create table sys_blog_tag (
 -- ----------------------------
 drop table if exists sys_type;
 create table sys_type (
-    type_id         bigint(20)      not null     auto_increment     comment '类型id',
-    name            varchar(30)     not null                        comment '类型名称',
-    del_flag        char(1)         default '0'                     comment '删除标志（0代表存在 2代表删除）',
-    create_by       varchar(64)     default ''                      comment '创建者',
-    create_time 	datetime                                        comment '创建时间',
-    update_by       varchar(64)     default ''                      comment '更新者',
-    update_time     datetime                                        comment '更新时间',
+    type_id         bigint(20)    not null  auto_increment  comment '类型id',
+    type_name       varchar(30)   not null                  comment '类型名称',
+    parent_id       bigint(20)    default 0                 comment '父类型id',
+    ancestors       varchar(50)   default ''                comment '祖级列表',
+    del_flag        char(1)       default '0'               comment '删除标志（0代表存在 2代表删除）',
+    create_by       varchar(64)   default ''                comment '创建者',
+    create_time 	datetime                                comment '创建时间',
+    update_by       varchar(64)   default ''                comment '更新者',
+    update_time     datetime                                comment '更新时间',
     primary key (type_id)
-) engine=innodb auto_increment=100 comment = '博客类型联表';
+) engine=innodb auto_increment=100 comment = '博客类型表';
 
 -- ----------------------------
 -- 4、博客评论表

@@ -188,6 +188,13 @@
                 <version>${hyzt.version}</version>
             </dependency>
 
+            <!-- 博客系统模块 -->
+            <dependency>
+                <groupId>vip.hyzt</groupId>
+                <artifactId>hyzt-blogSystem</artifactId>
+                <version>${hyzt.version}</version>
+            </dependency>
+
             <!-- 通用工具 -->
             <dependency>
                 <groupId>vip.hyzt</groupId>
@@ -205,6 +212,7 @@
         <module>hyzt-generator</module>
         <module>hyzt-system</module>
         <module>hyzt-quartz</module>
+        <module>hyzt-blogSystem</module>
     </modules>
     <packaging>pom</packaging>
 
