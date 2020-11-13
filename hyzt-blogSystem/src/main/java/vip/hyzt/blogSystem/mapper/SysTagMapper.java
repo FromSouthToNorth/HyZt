@@ -9,8 +9,7 @@ import vip.hyzt.blogSystem.domain.SysTag;
  * @author hyzt
  * @date 2020-11-12
  */
-public interface SysTagMapper 
-{
+public interface SysTagMapper {
     /**
      * 查询博客标签
      * 

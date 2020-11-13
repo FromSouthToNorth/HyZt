@@ -9,8 +9,8 @@ import vip.hyzt.blogSystem.domain.SysBlogTag;
  * @author hyzt
  * @date 2020-11-12
  */
-public interface ISysBlogTagService
-{
+public interface ISysBlogTagService {
+
     /**
      * 批量删除博客与标签关联
      *

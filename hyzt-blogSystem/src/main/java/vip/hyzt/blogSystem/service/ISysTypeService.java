@@ -1,8 +1,6 @@
 package vip.hyzt.blogSystem.service;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 import vip.hyzt.blogSystem.domain.SysType;
 
 /**
@@ -11,8 +9,8 @@ import vip.hyzt.blogSystem.domain.SysType;
  * @author hyzt
  * @date 2020-11-12
  */
-public interface ISysTypeService 
-{
+public interface ISysTypeService {
+    
     /**
      * 查询博客类型
      * 

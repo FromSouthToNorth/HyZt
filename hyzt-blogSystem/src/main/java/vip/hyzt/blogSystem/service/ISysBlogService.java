@@ -9,8 +9,8 @@ import vip.hyzt.blogSystem.domain.SysBlog;
  * @author hyzt
  * @date 2020-11-12
  */
-public interface ISysBlogService 
-{
+public interface ISysBlogService {
+
     /**
      * 查询博客
      * 

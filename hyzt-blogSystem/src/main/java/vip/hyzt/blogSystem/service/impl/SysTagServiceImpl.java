@@ -14,8 +14,8 @@ import vip.hyzt.blogSystem.service.ISysTagService;
  * @date 2020-11-12
  */
 @Service
-public class SysTagServiceImpl implements ISysTagService 
-{
+public class SysTagServiceImpl implements ISysTagService {
+
     @Autowired
     private SysTagMapper tagMapper;
 

@@ -4,7 +4,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import vip.hyzt.common.annotation.Excel;
 import vip.hyzt.common.core.domain.BaseEntity;
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +15,16 @@ import java.util.List;
  * @author hyzt
  * @date 2020-11-12
  */
-public class SysType extends BaseEntity
-{
+public class SysType extends BaseEntity {
+
     private static final long serialVersionUID = 1L;
 
     /** 类型id */
     private Long typeId;
 
     /** 类型名称 */
+    @NotBlank(message = "类型名称不能为空")
+    @Size(min = 0, max = 30, message = "类型名称长度不能超过30个字符")
     @Excel(name = "类型名称")
     private String typeName;
 

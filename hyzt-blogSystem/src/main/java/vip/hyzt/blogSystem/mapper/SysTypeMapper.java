@@ -1,7 +1,6 @@
 package vip.hyzt.blogSystem.mapper;
 
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 import vip.hyzt.blogSystem.domain.SysType;
 
@@ -11,8 +10,8 @@ import vip.hyzt.blogSystem.domain.SysType;
  * @author hyzt
  * @date 2020-11-12
  */
-public interface SysTypeMapper 
-{
+public interface SysTypeMapper {
+
     /**
      * 查询博客类型联
      * 

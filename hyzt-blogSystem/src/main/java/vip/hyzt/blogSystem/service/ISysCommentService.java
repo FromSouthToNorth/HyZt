@@ -9,8 +9,8 @@ import vip.hyzt.blogSystem.domain.SysComment;
  * @author hyzt
  * @date 2020-11-12
  */
-public interface ISysCommentService 
-{
+public interface ISysCommentService {
+
     /**
      * 查询博客评论
      * 

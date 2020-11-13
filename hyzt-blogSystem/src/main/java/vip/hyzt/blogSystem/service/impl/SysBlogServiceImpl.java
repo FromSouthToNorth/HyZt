@@ -15,8 +15,8 @@ import vip.hyzt.common.annotation.DataScope;
  * @date 2020-11-12
  */
 @Service
-public class SysBlogServiceImpl implements ISysBlogService 
-{
+public class SysBlogServiceImpl implements ISysBlogService {
+
     @Autowired
     private SysBlogMapper blogMapper;
 

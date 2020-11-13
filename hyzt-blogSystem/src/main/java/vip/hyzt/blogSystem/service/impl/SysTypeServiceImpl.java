@@ -14,8 +14,8 @@ import vip.hyzt.blogSystem.service.ISysTypeService;
  * @date 2020-11-12
  */
 @Service
-public class SysTypeServiceImpl implements ISysTypeService 
-{
+public class SysTypeServiceImpl implements ISysTypeService {
+
     @Autowired
     private SysTypeMapper sysTypeMapper;
 

@@ -14,8 +14,8 @@ import vip.hyzt.blogSystem.service.ISysCommentService;
  * @date 2020-11-12
  */
 @Service
-public class SysCommentServiceImpl implements ISysCommentService 
-{
+public class SysCommentServiceImpl implements ISysCommentService {
+
     @Autowired
     private SysCommentMapper sysCommentMapper;
 
