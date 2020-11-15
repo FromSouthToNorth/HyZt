@@ -1,15 +1,6 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="用户id" prop="userId">
-        <el-input
-          v-model="queryParams.userId"
-          placeholder="请输入用户id"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="博客标题" prop="blogTitle">
         <el-input
           v-model="queryParams.blogTitle"
@@ -28,15 +19,6 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="博客首图" prop="firstPicture">
-        <el-input
-          v-model="queryParams.firstPicture"
-          placeholder="请输入博客首图"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="博客标记" prop="flag">
         <el-input
           v-model="queryParams.flag"
@@ -46,55 +28,10 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="博客浏览数" prop="viewsNumber">
-        <el-input
-          v-model="queryParams.viewsNumber"
-          placeholder="请输入博客浏览数"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="博客点赞数" prop="likeNumber">
-        <el-input
-          v-model="queryParams.likeNumber"
-          placeholder="请输入博客点赞数"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="是否开启赞赏" prop="appreciateFunction">
-        <el-input
-          v-model="queryParams.appreciateFunction"
-          placeholder="请输入是否开启赞赏"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="是否开启评论功能" prop="commentFunction">
-        <el-input
-          v-model="queryParams.commentFunction"
-          placeholder="请输入是否开启评论功能"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
       <el-form-item label="是否发布" prop="published">
         <el-input
           v-model="queryParams.published"
           placeholder="请输入是否发布"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="类型id" prop="typeId">
-        <el-input
-          v-model="queryParams.typeId"
-          placeholder="请输入类型id"
           clearable
           size="small"
           @keyup.enter.native="handleQuery"
@@ -208,11 +145,8 @@
     />
 
     <!-- 添加或修改博客对话框 -->
-    <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
+    <el-dialog :title="title" :visible.sync="open" width="1500px" append-to-body>
       <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="用户id" prop="userId">
-          <el-input v-model="form.userId" placeholder="请输入用户id" />
-        </el-form-item>
         <el-form-item label="博客标题" prop="blogTitle">
           <el-input v-model="form.blogTitle" placeholder="请输入博客标题" />
         </el-form-item>
@@ -220,19 +154,13 @@
           <el-input v-model="form.description" placeholder="请输入博客描述" />
         </el-form-item>
         <el-form-item label="博客内容">
-          <editor v-model="form.blogContent" :min-height="192"/>
+          <mavon-editor v-model="form.blogContent" />
         </el-form-item>
         <el-form-item label="博客首图" prop="firstPicture">
           <el-input v-model="form.firstPicture" placeholder="请输入博客首图" />
         </el-form-item>
         <el-form-item label="博客标记" prop="flag">
           <el-input v-model="form.flag" placeholder="请输入博客标记" />
-        </el-form-item>
-        <el-form-item label="博客浏览数" prop="viewsNumber">
-          <el-input v-model="form.viewsNumber" placeholder="请输入博客浏览数" />
-        </el-form-item>
-        <el-form-item label="博客点赞数" prop="likeNumber">
-          <el-input v-model="form.likeNumber" placeholder="请输入博客点赞数" />
         </el-form-item>
         <el-form-item label="是否开启赞赏" prop="appreciateFunction">
           <el-input v-model="form.appreciateFunction" placeholder="请输入是否开启赞赏" />
@@ -245,9 +173,6 @@
         </el-form-item>
         <el-form-item label="类型id" prop="typeId">
           <el-input v-model="form.typeId" placeholder="请输入类型id" />
-        </el-form-item>
-        <el-form-item label="删除标志" prop="delFlag">
-          <el-input v-model="form.delFlag" placeholder="请输入删除标志" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -263,7 +188,7 @@ import { listBlog, getBlog, delBlog, addBlog, updateBlog, exportBlog } from "@/a
 import Editor from '@/components/Editor/index';
 
 export default {
-  name: "Blog",
+  name: "List",
   components: { Editor },
   data() {
     return {
@@ -365,7 +290,7 @@ export default {
         userId: null,
         blogTitle: null,
         description: null,
-        blogContent: null,
+        blogContent: '',
         firstPicture: null,
         flag: null,
         viewsNumber: null,
