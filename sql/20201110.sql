@@ -475,6 +475,7 @@ insert into sys_dict_type values(7,  '通知类型', 'sys_notice_type',     '0',
 insert into sys_dict_type values(8,  '通知状态', 'sys_notice_status',   '0', 'admin', sysdate(), '', null, '通知状态列表');
 insert into sys_dict_type values(9,  '操作类型', 'sys_oper_type',       '0', 'admin', sysdate(), '', null, '操作类型列表');
 insert into sys_dict_type values(10, '系统状态', 'sys_common_status',   '0', 'admin', sysdate(), '', null, '登录状态列表');
+INSERT INTO sys_dict_type values(100, '博客标记', 'sys_blog_flag',      '0', 'admin', sysdate(), '', null, '博客标记列表');
 
 
 -- ----------------------------
@@ -528,6 +529,9 @@ insert into sys_dict_data values(25, 8,  '生成代码', '8',       'sys_oper_ty
 insert into sys_dict_data values(26, 9,  '清空数据', '9',       'sys_oper_type',       '',   'danger',  'N', '0', 'admin', sysdate(), '', null, '清空操作');
 insert into sys_dict_data values(27, 1,  '成功',     '0',       'sys_common_status',   '',   'primary', 'N', '0', 'admin', sysdate(), '', null, '正常状态');
 insert into sys_dict_data values(28, 2,  '失败',     '1',       'sys_common_status',   '',   'danger',  'N', '0', 'admin', sysdate(), '', null, '停用状态');
+INSERT INTO sys_dict_data values(100, 1, '原创',     '0',       'sys_blog_flag',       '',   '',        'N', '0', 'admin', sysdate(), '', null, '表示原创');
+INSERT INTO sys_dict_data values(101, 2, '转载',     '1',       'sys_blog_flag',       '',   '',        'N', '0', 'admin', sysdate(), '', null , '表示转载');
+
 
 
 -- ----------------------------
@@ -744,6 +748,13 @@ create table sys_tag (
 ) engine=innodb auto_increment=100 comment = '博客标签表';
 
 -- ----------------------------
+-- 博客标签表 插入数据
+-- ----------------------------
+INSERT INTO `sys_tag` VALUES (1, 'java', '0', 'hy', '2020-11-16 13:16:34', '', NULL);
+INSERT INTO `sys_tag` VALUES (2, 'css',  '0', 'hy', '2020-11-16 13:16:35', '', NULL);
+INSERT INTO `sys_tag` VALUES (3, 'html', '0', 'hy', '2020-11-16 13:16:35', '', NULL);
+
+-- ----------------------------
 -- 2、博客与标签关联表
 -- ----------------------------
 drop table if exists sys_blog_tag;
@@ -752,6 +763,11 @@ create table sys_blog_tag (
     tag_id          bigint(20)      not null        comment '标签id',
     primary key (blog_id, tag_id)
 ) engine=innodb auto_increment=100 comment = '博客与标签关联表';
+-- ----------------------------
+-- Records of sys_blog_tag
+-- ----------------------------
+INSERT INTO `sys_blog_tag` VALUES (103, 2);
+INSERT INTO `sys_blog_tag` VALUES (103, 3);
 
 -- ----------------------------
 -- 3、博客类型表
@@ -769,6 +785,10 @@ create table sys_type (
     update_time     datetime                                comment '更新时间',
     primary key (type_id)
 ) engine=innodb auto_increment=100 comment = '博客类型表';
+-- ----------------------------
+-- 博客类型表 插入数据
+-- ----------------------------
+insert into sys_type values ('1', '学习笔记', '0', '0', '0', 'hy', sysdate(), '', null);
 
 -- ----------------------------
 -- 4、博客评论表
