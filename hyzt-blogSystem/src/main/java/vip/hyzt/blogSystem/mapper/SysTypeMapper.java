@@ -23,26 +23,26 @@ public interface SysTypeMapper {
     /**
      * 查询博客类型联列表
      * 
-     * @param sysType 博客类型联
+     * @param type 博客类型联
      * @return 博客类型联集合
      */
-    public List<SysType> selectSysTypeList(SysType sysType);
+    public List<SysType> selectSysTypeList(SysType type);
 
     /**
      * 新增博客类型联
      * 
-     * @param sysType 博客类型联
+     * @param type 博客类型联
      * @return 结果
      */
-    public int insertSysType(SysType sysType);
+    public int insertSysType(SysType type);
 
     /**
      * 修改博客类型联
      * 
-     * @param sysType 博客类型联
+     * @param type 博客类型联
      * @return 结果
      */
-    public int updateSysType(SysType sysType);
+    public int updateSysType(SysType type);
 
     /**
      * 删除博客类型联

@@ -9,6 +9,14 @@ export function listTag(query) {
   })
 }
 
+// 查询博客类型列表全部信息
+export function listAllTag() {
+  return request({
+    url: '/system/tag/alltag',
+    method: 'get'
+  })
+}
+
 // 查询博客标签详细
 export function getTag(tagId) {
   return request({

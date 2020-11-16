@@ -1,12 +1,5 @@
 package vip.hyzt.web.controller.common;
 
-import vip.hyzt.common.config.HyZtConfig;
-import vip.hyzt.common.constant.Constants;
-import vip.hyzt.common.core.domain.AjaxResult;
-import vip.hyzt.common.utils.StringUtils;
-import vip.hyzt.common.utils.file.FileUploadUtils;
-import vip.hyzt.common.utils.file.FileUtils;
-import vip.hyzt.framework.config.ServerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import vip.hyzt.common.config.HyZtConfig;
+import vip.hyzt.common.constant.Constants;
+import vip.hyzt.common.core.domain.AjaxResult;
+import vip.hyzt.common.utils.StringUtils;
+import vip.hyzt.common.utils.file.FileUploadUtils;
+import vip.hyzt.common.utils.file.FileUtils;
+import vip.hyzt.framework.config.ServerConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 通用请求处理
+ * 通用请求
  */
 @RestController
 public class CommonController {
@@ -29,12 +29,12 @@ public class CommonController {
     private ServerConfig serverConfig;
 
     /**
-     * 通用下载请求
-     * 
+     * 通用下载
+     *
      * @param fileName 文件名称
      * @param delete 是否删除
      */
-    @GetMapping("common/download")
+    @GetMapping("/common/download")
     public void fileDownload(String fileName, Boolean delete, HttpServletResponse response, HttpServletRequest request) {
         try {
             if (!FileUtils.isValidFilename(fileName)) {
@@ -62,7 +62,7 @@ public class CommonController {
     @PostMapping("/common/upload")
     public AjaxResult uploadFile(MultipartFile file) throws Exception {
         try {
-            // 上传文件路径
+            // 上传文件
             String filePath = HyZtConfig.getUploadPath();
             // 上传并返回新文件名称
             String fileName = FileUploadUtils.upload(filePath, file);
@@ -77,15 +77,13 @@ public class CommonController {
     }
 
     /**
-     * 本地资源通用下载
+     * 本地资源下载
      */
     @GetMapping("/common/download/resource")
     public void resourceDownload(String name, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        // 本地资源路径
+        // 本的资源路径
         String localPath = HyZtConfig.getProfile();
-        // 数据库资源地址
         String downloadPath = localPath + StringUtils.substringAfter(name, Constants.RESOURCE_PREFIX);
-        // 下载名称
         String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
         response.setCharacterEncoding("utf-8");
         response.setContentType("multipart/form-data");

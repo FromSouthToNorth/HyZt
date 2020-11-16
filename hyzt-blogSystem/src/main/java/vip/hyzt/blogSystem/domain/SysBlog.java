@@ -44,7 +44,7 @@ public class SysBlog extends BaseEntity {
 
     /** 博客首图 */
     @NotBlank(message = "博客首图不能为空")
-    @Size(min = 0, max = 100, message = "博客首图长度不能超过100个字符")
+    @Size(min = 0, max = 160, message = "博客首图长度不能超过160个字符")
     @Excel(name = "博客首图")
     private String firstPicture;
 
@@ -81,6 +81,9 @@ public class SysBlog extends BaseEntity {
 
     /** 博客类型 */
     private SysType type;
+
+    /** 博客标签编号数组 */
+    private Long[] tagIds;
 
     /** 博客标签 */
     private List<SysTag> tags;
@@ -205,6 +208,14 @@ public class SysBlog extends BaseEntity {
         this.type = type;
     }
 
+    public Long[] getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(Long[] tagIds) {
+        this.tagIds = tagIds;
+    }
+
     public List<SysTag> getTags() {
         return tags;
     }
@@ -235,6 +246,7 @@ public class SysBlog extends BaseEntity {
             .append("updateBy", getUpdateBy())
             .append("updateTime", getUpdateTime())
             .append("type", getType())
+            .append("tagIds", getTagIds())
             .append("tags", getTags())
             .toString();
     }

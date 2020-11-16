@@ -112,10 +112,10 @@
           </el-row>
         </template>
       </el-table-column>
-      <el-table-column label="博客标记" align="center" prop="flag" />
+      <el-table-column label="博客标记" align="center" prop="flag" :formatter="blogFlagFormat" />
       <el-table-column label="是否开启赞赏" align="center" prop="appreciateFunction" />
       <el-table-column label="是否开启评论功能" align="center" prop="commentFunction" />
-      <el-table-column label="博客类型" align="center" prop="typeId" />
+      <el-table-column label="博客类型" align="center" prop="type.typeName" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -146,14 +146,14 @@
 
     <!-- 添加或修改博客对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="1500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="80px">
+      <el-form ref="form" :model="form" :rules="rules">
         <el-form-item label="博客标题" prop="blogTitle">
           <el-input v-model="form.blogTitle" placeholder="请输入博客标题" />
         </el-form-item>
         <el-form-item label="博客描述" prop="description">
           <el-input v-model="form.description" placeholder="请输入博客描述" />
         </el-form-item>
-        <el-form-item label="博客内容">
+        <el-form-item label="博客内容" prop="blogContent">
           <mavon-editor v-model="form.blogContent" />
         </el-form-item>
         <el-form-item label="博客首图" prop="firstPicture">
@@ -163,16 +163,45 @@
           <el-input v-model="form.flag" placeholder="请输入博客标记" />
         </el-form-item>
         <el-form-item label="是否开启赞赏" prop="appreciateFunction">
-          <el-input v-model="form.appreciateFunction" placeholder="请输入是否开启赞赏" />
+          <el-switch
+            v-model="form.appreciateFunction"
+            active-value="0"
+            inactive-value="1">
+          </el-switch>
         </el-form-item>
         <el-form-item label="是否开启评论功能" prop="commentFunction">
-          <el-input v-model="form.commentFunction" placeholder="请输入是否开启评论功能" />
+          <el-switch
+            v-model="form.commentFunction"
+            active-value="0"
+            inactive-value="1">
+          </el-switch>
         </el-form-item>
         <el-form-item label="是否发布" prop="published">
-          <el-input v-model="form.published" placeholder="请输入是否发布" />
+          <el-switch
+            v-model="form.published"
+            active-value="0"
+            inactive-value="1">
+          </el-switch>
         </el-form-item>
-        <el-form-item label="类型id" prop="typeId">
-          <el-input v-model="form.typeId" placeholder="请输入类型id" />
+        <el-form-item label="博客类型" prop="typeId">
+          <el-select v-model="form.typeId" placeholder="请选择类型">
+            <el-option
+              v-for="item in blogTypeOptions"
+              :key="item.typeId"
+              :label="item.typeName"
+              :value="item.typeId">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="博客标签" prop="typeId">
+          <el-select v-model="form.tagIds" multiple placeholder="请选择标签">
+            <el-option
+              v-for="item in blogTagOptions"
+              :key="item.tagId"
+              :label="item.tagName"
+              :value="item.tagId">
+            </el-option>
+          </el-select>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -185,7 +214,9 @@
 
 <script>
 import { listBlog, getBlog, delBlog, addBlog, updateBlog, exportBlog } from "@/api/system/blog";
-import Editor from '@/components/Editor/index';
+import { listAllType } from '@/api/system/type'
+import { listAllTag } from '@/api/system/tag'
+import Editor from '@/components/Editor/index'
 
 export default {
   name: "List",
@@ -210,6 +241,12 @@ export default {
       title: "",
       // 是否显示弹出层
       open: false,
+      // 博客类型
+      blogTypeOptions: [],
+      // 博客标签
+      blogTagOptions: [],
+      // 博客标记
+      blogFlagOptions: [],
       // 查询参数
       queryParams: {
         pageNum: 1,
@@ -220,8 +257,6 @@ export default {
         blogContent: null,
         firstPicture: null,
         flag: null,
-        viewsNumber: null,
-        likeNumber: null,
         appreciateFunction: null,
         commentFunction: null,
         published: null,
@@ -259,15 +294,35 @@ export default {
           { required: true, message: "是否发布不能为空", trigger: "blur" }
         ],
         typeId: [
-          { required: true, message: "类型id不能为空", trigger: "blur" }
+          { required: true, message: "类型不能为空", trigger: "blur" }
         ],
       }
     };
   },
   created() {
-    this.getList();
+    this.getList()
+    this.getTypeList()
+    this.getTagList()
+    /** 加载商品库存状态 select */
+    this.getDicts('sys_blog_flag').then(res => {
+      this.blogFlagOptions = res.data
+    })
   },
   methods: {
+    /** 查询标签 */
+    getTagList() {
+      listAllTag().then(response => {
+        console.log(response)
+        this.blogTagOptions = response.data
+      })
+    },
+    /** 查询博客类型 */
+    getTypeList() {
+      listAllType().then(response => {
+        console.log(response)
+        this.blogTypeOptions = response.data
+      })
+    },
     /** 查询博客列表 */
     getList() {
       this.loading = true;
@@ -277,6 +332,10 @@ export default {
         this.total = response.total;
         this.loading = false;
       });
+    },
+    // 博客标记翻译
+    blogFlagFormat(row) {
+      return this.selectDictLabel(this.blogFlagOptions, row.flag)
     },
     // 取消按钮
     cancel() {
@@ -293,17 +352,11 @@ export default {
         blogContent: '',
         firstPicture: null,
         flag: null,
-        viewsNumber: null,
-        likeNumber: null,
         appreciateFunction: null,
         commentFunction: null,
         published: null,
         typeId: null,
-        delFlag: null,
-        createBy: null,
-        createTime: null,
-        updateBy: null,
-        updateTime: null
+        tagIds: []
       };
       this.resetForm("form");
     },

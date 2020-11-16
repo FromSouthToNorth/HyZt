@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="vip.hyzt.blogSystem.mapper.SysBlogMapper">
     
     <resultMap type="SysBlog" id="SysBlogResult">
-        <result property="blogId"               column="blog_id"       />
+        <id     property="blogId"               column="blog_id"       />
         <result property="userId"               column="user_id"       />
         <result property="blogTitle"            column="blog_title"    />
         <result property="description"          column="description"   />

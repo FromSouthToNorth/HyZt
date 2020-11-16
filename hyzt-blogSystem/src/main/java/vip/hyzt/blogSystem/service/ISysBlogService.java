@@ -62,8 +62,8 @@ public interface ISysBlogService {
     /**
      * 校验博客标题是否唯一
      *
-     * @param blogTitle 博客标题
+     * @param blog 博客信息
      * @return 结果
      */
-    public String checkTitleUnique(String blogTitle);
+    public String checkTitleUnique(SysBlog blog);
 }
