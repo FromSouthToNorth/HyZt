@@ -160,7 +160,14 @@
           <el-input v-model="form.firstPicture" placeholder="请输入博客首图" />
         </el-form-item>
         <el-form-item label="博客标记" prop="flag">
-          <el-input v-model="form.flag" placeholder="请输入博客标记" />
+          <el-select v-model="form.flag" placeholder="请输入博客标记">
+            <el-option
+              v-for="dict in blogFlagOptions"
+              :key="dict.dictValue"
+              :label="dict.dictLabel"
+              :value="dict.dictValue">
+            </el-option>
+          </el-select>
         </el-form-item>
         <el-form-item label="是否开启赞赏" prop="appreciateFunction">
           <el-switch
@@ -266,9 +273,6 @@ export default {
       form: {},
       // 表单校验
       rules: {
-        userId: [
-          { required: true, message: "用户id不能为空", trigger: "blur" }
-        ],
         blogTitle: [
           { required: true, message: "博客标题不能为空", trigger: "blur" }
         ],
